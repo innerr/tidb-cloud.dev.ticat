@@ -1,0 +1,11 @@
+help = start local tidb in background, verify it is accessable
+abbr = bg
+trivial = 1
+flow = glb.db.start-local-tidb %delay=0 %env=apply
+
+[arg]
+tidb-cloud-global-db-port|global-db-port|db-port|port|p = 4000
+verify-timeout-secs|timeout = 60
+
+[arg2env]
+tidb-cloud.global.db.port = tidb-cloud-global-db-port

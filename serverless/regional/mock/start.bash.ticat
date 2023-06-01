@@ -1,0 +1,41 @@
+help = run mock serverless-regional-service
+abbr = run|up|start
+
+[arg]
+serverless-regional-mock-grpc-port|serverless-regional-grpc-port|slr-grpc-port = 10000
+serverless-regional-mock-http-port|serverless-regional-http-port|slr-http-port = 10001
+serverless-regional-mock-http-host|serverless-regional-http-host|slr-http-host = 127.0.0.1
+serverless-regional-mock-db-path|serverless-regional-db-path|slr-db-path = .ticat/data/serverless-regional-service/mock/db
+
+serverless-regional-mock-cluster-create-version|serverless-regional-cluster-create-version|slr-create-version = v6.6.6
+serverless-regional-mock-region-name|serverless-regional-region-name|slr-region-name = shanghai.cn
+serverless-regional-mock-region-display-name|serverless-regional-region-display-name|slr-region-display-name = (Mock) Shanghai, China
+serverless-regional-mock-cloud-provider|serverless-cloud-provider|slr-cloud-provider = aws
+
+serverless-regional-mock-sim-secs-create|serverless-sim-secs-create|slr-sim-secs-create = 5
+serverless-regional-mock-sim-secs-update|serverless-sim-secs-update|slr-sim-secs-update = 1
+serverless-regional-mock-sim-secs-delete|serverless-sim-secs-delete|slr-sim-secs-delete = 2
+
+[arg2env]
+tidb-cloud.serverless-regional.mock.grpc.port = serverless-regional-mock-grpc-port
+tidb-cloud.serverless-regional.mock.http.port = serverless-regional-mock-http-port
+tidb-cloud.serverless-regional.mock.http.host = serverless-regional-mock-http-host
+tidb-cloud.serverless-regional.mock.db-path = serverless-regional-mock-db-path
+
+tidb-cloud.serverless-regional.mock.cluster-create-version = serverless-regional-mock-cluster-create-version
+tidb-cloud.serverless-regional.mock.region-name = serverless-regional-mock-region-name
+tidb-cloud.serverless-regional.mock.region-display-name = serverless-regional-mock-region-display-name
+tidb-cloud.serverless-regional.mock.cloud-provider = serverless-regional-mock-cloud-provider
+
+tidb-cloud.serverless-regional.mock.sim-secs.create = serverless-regional-mock-sim-secs-create
+tidb-cloud.serverless-regional.mock.sim-secs.update = serverless-regional-mock-sim-secs-update
+tidb-cloud.serverless-regional.mock.sim-secs.delete = serverless-regional-mock-sim-secs-delete
+
+[val2env]
+tidb-cloud.serverless-regional.cloud-provider = [[serverless-regional-mock-cloud-provider]]
+tidb-cloud.serverless-regional.region-name = [[serverless-regional-mock-region-name]]
+tidb-cloud.serverless-regional.addr = [[serverless-regional-mock-http-host]]:[[serverless-regional-mock-http-port]]
+
+[env]
+tidb-cloud.dev.tidb-mgmt.repo-dir = read
+tidb-cloud.serverless-regional.addr = write

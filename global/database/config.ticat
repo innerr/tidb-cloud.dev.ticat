@@ -1,0 +1,12 @@
+help = config global meta database address
+abbr= conf|cfg
+
+[arg]
+tidb-cloud-global-db-host|global-db-host|db-host = 127.0.0.1
+tidb-cloud-global-db-port|global-db-port|db-port = 4000
+tidb-cloud-global-db-user|global-db-user|db-user = root
+
+[arg2env]
+tidb-cloud.global.db.host = tidb-cloud-global-db-host
+tidb-cloud.global.db.port = tidb-cloud-global-db-port
+tidb-cloud.global.db.user = tidb-cloud-global-db-user

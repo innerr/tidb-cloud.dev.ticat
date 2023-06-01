@@ -1,0 +1,11 @@
+help = call tidb cloud api: GetServerlessCluster
+abbr = get
+
+[arg]
+cluster-name|cluster|name = ''
+
+[env]
+tidb-cloud.api.addr = read
+
+[dep]
+curl = to call restful api

@@ -1,0 +1,14 @@
+help = register serverless-regional to serverless-global-service
+abbr = add
+
+[arg]
+tidb-cloud-serverless-regional-cloud-provider|cloud-provider = ''
+tidb-cloud-serverless-regional-addr|regional-addr = ''
+
+[arg2env]
+tidb-cloud.serverless-regional.cloud-provider = tidb-cloud-serverless-regional-cloud-provider
+tidb-cloud.serverless-regional.addr = tidb-cloud-serverless-regional-addr
+
+[env]
+tidb-cloud.serverless-regional.cloud-provider = read
+tidb-cloud.serverless-regional.addr = read

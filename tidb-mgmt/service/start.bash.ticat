@@ -1,0 +1,23 @@
+help = run tidb-mgmt-service on local mode
+abbr = run|up|start
+
+[arg]
+tidb-cloud-tidb-mgmt-port|tmgmt-port|port = 10003
+tidb-cloud-tidb-mgmt-host|tmgmt-host|host = 127.0.0.1
+tidb-cloud-tidb-mgmt-db-name|tmgmt-db-name|db-name = tidb_mgmt
+
+[arg2env]
+tidb-cloud.tidb-mgmt.db.name = tidb-cloud-tidb-mgmt-db-name
+
+[val2env]
+tidb-cloud.tidb-mgmt.service.addr = [[tidb-cloud-tidb-mgmt-host]]:[[tidb-cloud-tidb-mgmt-port]]
+
+[env]
+tidb-cloud.global.db.host = read
+tidb-cloud.global.db.port = read
+tidb-cloud.global.db.user = read
+tidb-cloud.tidb-mgmt.db.name = read
+
+tidb-cloud.serverless-global.addr = read
+
+tidb-cloud.dev.tidb-mgmt.repo-dir = read

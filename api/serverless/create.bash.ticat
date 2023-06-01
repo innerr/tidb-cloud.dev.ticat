@@ -1,0 +1,13 @@
+help = call tidb cloud api: CreateServerlessCluster
+abbr = new
+
+[arg]
+cluster-name|cluster|name = ''
+
+[env]
+tidb-cloud.api.addr = read
+tidb-cloud.serverless-regional.cloud-provider = read
+tidb-cloud.serverless-regional.region-name = read
+
+[dep]
+curl = to call restful api

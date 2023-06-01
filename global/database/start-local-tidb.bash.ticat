@@ -1,0 +1,15 @@
+help = start local tidb to provide tidb cloud global database
+abbr = local
+
+[arg]
+tidb-cloud-global-db-port|global-db-port|db-port|port|p = 4000
+
+[arg2env]
+tidb-cloud.global.db.port = tidb-cloud-global-db-port
+
+[val2env]
+tidb-cloud.global.db.host = 127.0.0.1
+tidb-cloud.global.db.user = root
+
+[dep]
+tiup = to start tidb playground

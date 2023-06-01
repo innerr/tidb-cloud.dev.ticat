@@ -1,0 +1,26 @@
+help = run serverless-global-service on local mode
+abbr = run|up|start
+
+[arg]
+serverless-global-port|slg-port = 10019
+serverless-global-host|slg-host = 127.0.0.1
+
+serverless-global-conn-regional-timeout-secs|slg-conn-regional-timeout-secs|regional-timeout = 30
+serverless-global-conn-regional-retry|slg-conn-regional-retry|regional-retry = 3
+serverless-global-db-name|slg-db-name = serverless_global
+
+[arg2env]
+tidb-cloud.serverless-global.conn-regional.timeout-secs = serverless-global-conn-regional-timeout-secs
+tidb-cloud.serverless-global.conn-regional.retry = serverless-global-conn-regional-retry
+tidb-cloud.serverless-global.db.name = serverless-global-db-name
+
+[val2env]
+tidb-cloud.serverless-global.addr = [[serverless-global-host]]:[[serverless-global-port]]
+
+[env]
+tidb-cloud.global.db.host = read
+tidb-cloud.global.db.port = read
+tidb-cloud.global.db.user = read
+tidb-cloud.serverless-global.db.name = read
+
+tidb-cloud.dev.tidb-mgmt.repo-dir = read

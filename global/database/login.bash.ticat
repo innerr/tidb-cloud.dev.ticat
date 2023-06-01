@@ -1,0 +1,16 @@
+help = login tidb cloud global meta database in interactive interface
+abbrs = l
+
+quiet-error = true
+interactive = true
+
+[args]
+db-name|database|db = ''
+
+[env]
+tidb-cloud.global.db.host = read
+tidb-cloud.global.db.port = read
+tidb-cloud.global.db.user = read
+
+[dep]
+mysql = as client

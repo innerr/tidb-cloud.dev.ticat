@@ -1,0 +1,15 @@
+help = run tidb cloud in local mode
+abbr = tc.local
+
+args.auto = *
+
+[flow/]
+glb.db.local.bg
+
+svrl.rgn.mock.up %delay=1s %env=apply
+
+svrl.glb.up  %delay=2s %env=apply : svrl.glb.add
+tmgmt.svc.up %delay=3s %env=apply
+tmgmt.ptl.up   %delay=4s %env=apply
+
+env.save tidb-cloud-dev

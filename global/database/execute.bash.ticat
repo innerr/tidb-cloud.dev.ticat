@@ -1,0 +1,16 @@
+help = execute sql in global meta database
+abbrs = exec|exe
+
+[args]
+query|sql|q = ''
+db-name|database|db = ''
+output-format|format|fmt = ''
+warnings|warning|warn = true
+
+[env]
+tidb-cloud.global.db.host = read
+tidb-cloud.global.db.port = read
+tidb-cloud.global.db.user = read
+
+[dep]
+mysql = as client

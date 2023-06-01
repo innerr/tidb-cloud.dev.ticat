@@ -1,0 +1,11 @@
+help = call tidb cloud api: DeleteServerlessCluster
+abbr = del|rm
+
+[arg]
+cluster-name|cluster|name = ''
+
+[env]
+tidb-cloud.api.addr = read
+
+[dep]
+curl = to call restful api
