@@ -1,0 +1,7 @@
+help = login to the running meta database of tidb cloud
+abbr = log|l
+
+interactive = true
+pack-sub = true
+
+flow = local.env : global.db.log

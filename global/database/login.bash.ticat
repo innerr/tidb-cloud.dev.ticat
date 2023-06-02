@@ -1,5 +1,5 @@
 help = login tidb cloud global meta database in interactive interface
-abbrs = l
+abbrs = log|l
 
 quiet-error = true
 interactive = true

@@ -1,5 +1,5 @@
 help = run tidb cloud in local mode
-abbr = tc.local
+abbr = up|run
 
 args.auto = *
 
