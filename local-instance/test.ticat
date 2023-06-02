@@ -1,12 +1,18 @@
 help = test tidb cloud api
 
+[args]
+cluster-name|cluster|name = xxxxx
+
 [flow/]
 lc.env : display.env.off : wait-exe 3
 
 api.sl.new BAD
-api.sl.new xxxxx
+
+api.sl.new [[cluster-name]]
 api.sl.get
-api.sl.new xxxxx
+api.sl.new [[cluster-name]]
 api.sl.del
 api.sl.get
-api.sl.new xxxxx
+api.sl.new [[cluster-name]]
+api.sl.del
+api.sl.get
