@@ -10,9 +10,9 @@ api.sl.new BAD
 
 api.sl.new [[cluster-name]]
 api.sl.get
-api.sl.new [[cluster-name]]
+api.sl.new
 api.sl.del
 api.sl.get
-api.sl.new [[cluster-name]]
+api.sl.new
 api.sl.del
 api.sl.get

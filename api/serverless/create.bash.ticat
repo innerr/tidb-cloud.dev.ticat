@@ -3,14 +3,17 @@ abbr = new
 quiet-err = true
 
 [arg]
-cluster-name|cluster|name = ''
+tidb-cloud-api-arg-cluster-name|cluster-name|cluster|name = ''
+
+[arg2env]
+tidb-cloud.test.current-cluster.name = tidb-cloud-api-arg-cluster-name
 
 [env]
 tidb-cloud.api.addr = read
 tidb-cloud.serverless-regional.cloud-provider = read
 tidb-cloud.serverless-regional.region-name = read
 
-tidb-cloud.test.current-cluster = write
+tidb-cloud.test.current-cluster.id = write
 
 [dep]
 curl = to call restful api

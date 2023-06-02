@@ -24,5 +24,5 @@ echo "${response}"
 
 cluster_id=`echo "${response}" | { grep 'clusterId":"' || test $? = 1; } | awk -F 'clusterId":"' '{print $2}' | awk -F '"' '{print $1}'`
 if [ ! -z "${cluster_id}" ]; then
-	echo "tidb-cloud.test.current-cluster=${cluster_id}" | tee -a "${env_file}"
+	echo "tidb-cloud.test.current-cluster.id=${cluster_id}" | tee -a "${env_file}"
 fi

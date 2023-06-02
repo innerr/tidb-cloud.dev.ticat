@@ -3,10 +3,10 @@ abbr = del|rm
 quiet-err = true
 
 [arg]
-tidb-cloud-api-get-cluster-id|cluster-id|cluster|id = ''
+tidb-cloud-api-arg-cluster-id|cluster-id|cluster|id = ''
 
 [arg2env]
-tidb-cloud.test.current-cluster = tidb-cloud-api-get-cluster-id
+tidb-cloud.test.current-cluster.id = tidb-cloud-api-arg-cluster-id
 
 [env]
 tidb-cloud.api.addr = read

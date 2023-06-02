@@ -3,7 +3,7 @@ set -euo pipefail
 env=`cat "${1}/env"`
 shift
 
-cluster_id=`must_env_val "${env}" 'tidb-cloud.test.current-cluster'`
+cluster_id=`must_env_val "${env}" 'tidb-cloud.test.current-cluster.id'`
 api_addr=`must_env_val "${env}" 'tidb-cloud.api.addr'`
 
 echo "==> DeleteServerlessCluster(cluster id: ${cluster_id})"
