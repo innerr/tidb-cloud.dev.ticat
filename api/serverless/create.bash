@@ -4,11 +4,11 @@ env_file="${1}/env"
 env=`cat "${env_file}"`
 shift
 
-if [ -z "${1+x}" ] || [ -z "${1}" ]; then
-	echo "[:(] arg 'cluster-name' is empty" >&1
+name=`env_val "${env}" 'tidb-cloud.test.current-cluster.name'`
+if [ -z "${name}" ]; then
+	echo "[:(] arg 'cluster-name' is empty, and also not in env, exit" >&1
 	exit 1
 fi
-name="${1}"
 
 cloud_provider=`must_env_val "${env}" 'tidb-cloud.serverless-regional.cloud-provider'`
 region_name=`must_env_val "${env}" 'tidb-cloud.serverless-regional.region-name'`
