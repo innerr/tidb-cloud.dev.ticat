@@ -1,0 +1,5 @@
+help = remove all data of local tidb cloud deployment
+abbr = clear|clean
+
+[env]
+tidb-cloud.dev.tidb-mgmt.repo-dir = read
