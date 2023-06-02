@@ -10,7 +10,7 @@ tidb-cloud.test.current-cluster.id = tidb-cloud-api-arg-cluster-id
 
 [env]
 tidb-cloud.api.addr = read
-tidb-cloud.test.current-cluster = read
+tidb-cloud.test.current-cluster.id = read
 
 [dep]
 curl = to call restful api
