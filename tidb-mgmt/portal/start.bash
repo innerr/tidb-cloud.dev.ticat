@@ -40,7 +40,7 @@ svc_bin="${repo_dir}/bin/tidb-mgmt-portal/cmd"
 if [ ! -f "${svc_bin}" ]; then
 	(
 		cd "${repo_dir}/tidb-mgmt-portal"
-		make
+		make build
 	)
 fi
 

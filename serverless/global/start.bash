@@ -54,7 +54,7 @@ svr_bin="${repo_dir}/bin/serverless-global-service/cmd"
 if [ ! -f "${svr_bin}" ]; then
 	(
 		cd "${repo_dir}/serverless-global-service"
-		make
+		make build
 	)
 fi
 

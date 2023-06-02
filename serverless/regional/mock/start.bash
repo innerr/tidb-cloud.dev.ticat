@@ -47,7 +47,7 @@ mock_bin="${repo_dir}/bin/mock-serverless-regional"
 if [ ! -f "${mock_bin}" ]; then
 	(
 		cd "${repo_dir}/mock/serverless_regional_service"
-		make
+		make build
 	)
 fi
 
