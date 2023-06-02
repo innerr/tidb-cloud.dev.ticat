@@ -1,5 +1,6 @@
 help = call tidb cloud api: CreateServerlessCluster
 abbr = new
+quiet-err = true
 
 [arg]
 cluster-name|cluster|name = ''

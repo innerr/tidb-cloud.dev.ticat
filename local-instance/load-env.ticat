@@ -1,4 +1,4 @@
 help = load env of the local running instance of tidb cloud
 abbr = env
 pack-sub = true
-flow = env.ss.load tidb-cloud-dev
+flow = disp.env.off : env.ss.load tidb-cloud-dev

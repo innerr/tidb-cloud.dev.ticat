@@ -4,7 +4,7 @@ help = test tidb cloud api
 cluster-name|cluster|name = xxxxx
 
 [flow/]
-lc.env : display.env.off : wait-exe 3
+lc.env : wait-exe 3
 
 api.sl.new BAD
 

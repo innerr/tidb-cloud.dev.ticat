@@ -1,5 +1,6 @@
 help = call tidb cloud api: DeleteServerlessCluster
 abbr = del|rm
+quiet-err = true
 
 [arg]
 tidb-cloud-api-get-cluster-id|cluster-id|cluster|id = ''
