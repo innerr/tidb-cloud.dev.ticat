@@ -12,4 +12,4 @@ svrl.glb.up  %delay=2s %env=apply : svrl.glb.add
 tmgmt.svc.up %delay=3s %env=apply
 tmgmt.ptl.up   %delay=4s %env=apply
 
-env.save tidb-cloud-dev
+env.ss.save tidb-cloud-dev

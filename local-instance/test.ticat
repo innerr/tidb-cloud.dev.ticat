@@ -1,7 +1,7 @@
 help = test tidb cloud api
 
 [flow/]
-env.load tidb-cloud-dev : display.env.off : wait-exe 3
+lc.env : display.env.off : wait-exe 3
 
 api.sl.new BAD
 api.sl.new xxxxx
