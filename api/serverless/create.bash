@@ -1,6 +1,7 @@
 set -euo pipefail
 . "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/../../helper/helper.bash"
-env=`cat "${1}/env"`
+env_file="${1}/env"
+env=`cat "${env_file}"`
 shift
 
 if [ -z "${1+x}" ] || [ -z "${1}" ]; then
@@ -17,5 +18,11 @@ api_addr=`must_env_val "${env}" 'tidb-cloud.api.addr'`
 
 echo "==> CreateServerlessCluster(region: ${region}, cluster name: ${name})"
 echo "    curl -s -X POST --data '{\"displayName\":\"${name}\",\"region\":\"regions/${region}\"}' http://${api_addr}/serverless/v1/clusters"
-curl -s -X POST --data "{\"displayName\":\"${name}\",\"region\":\"regions/${region}\"}" "http://${api_addr}/serverless/v1/clusters"
-echo
+
+response=`curl -s -X POST --data "{\"displayName\":\"${name}\",\"region\":\"regions/${region}\"}" "http://${api_addr}/serverless/v1/clusters"`
+echo "${response}"
+
+cluster_id=`echo "${response}" | { grep 'clusterId":"' || test $? = 1; } | awk -F 'clusterId":"' '{print $2}' | awk -F '"' '{print $1}'`
+if [ ! -z "${cluster_id}" ]; then
+	echo "tidb-cloud.test.current-cluster=${cluster_id}" | tee -a "${env_file}"
+fi

@@ -3,15 +3,10 @@ set -euo pipefail
 env=`cat "${1}/env"`
 shift
 
-if [ -z "${1+x}" ] || [ -z "${1}" ]; then
-	echo "[:(] arg 'cluster-name' is empty" >&1
-	exit 1
-fi
-name="${1}"
-
+cluster_id=`must_env_val "${env}" 'tidb-cloud.test.current-cluster'`
 api_addr=`must_env_val "${env}" 'tidb-cloud.api.addr'`
 
-echo "==> DeleteServerlessCluster(cluster name: ${name})"
-echo "    curl -s -X DELETE http://${api_addr}/serverless/v1/clusters/${name}"
-curl -s -X DELETE "http://${api_addr}/serverless/v1/clusters/${name}"
+echo "==> DeleteServerlessCluster(cluster id: ${cluster_id})"
+echo "    curl -s -X DELETE http://${api_addr}/serverless/v1/clusters/${cluster_id}"
+curl -s -X DELETE "http://${api_addr}/serverless/v1/clusters/${cluster_id}"
 echo

@@ -9,5 +9,7 @@ tidb-cloud.api.addr = read
 tidb-cloud.serverless-regional.cloud-provider = read
 tidb-cloud.serverless-regional.region-name = read
 
+tidb-cloud.test.current-cluster = write
+
 [dep]
 curl = to call restful api

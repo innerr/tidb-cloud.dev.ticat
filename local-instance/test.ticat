@@ -4,10 +4,9 @@ help = test tidb cloud api
 env.load tidb-cloud-dev : display.env.off : wait-exe 3
 
 api.sl.new BAD
-api.sl.get xxxx
-api.sl.new xxxx
-api.sl.get xxxx
-api.sl.new xxxx
-api.sl.del xxxx
-api.sl.get xxxx
-api.sl.new xxxx
+api.sl.new xxxxx
+api.sl.get
+api.sl.new xxxxx
+api.sl.del
+api.sl.get
+api.sl.new xxxxx
