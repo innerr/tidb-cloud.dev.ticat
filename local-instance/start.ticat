@@ -4,12 +4,13 @@ abbr = up|run
 args.auto = *
 
 [flow/]
-glb.db.local.bg
+global.db.start-local.bg
 
 svrl.rgn.mock.up %delay=1s %env=apply
 
 svrl.glb.up  %delay=2s %env=apply : svrl.glb.add
 tmgmt.svc.up %delay=3s %env=apply
-tmgmt.ptl.up   %delay=4s %env=apply
+tmgmt.ptl.up %delay=4s %env=apply
 
 env.ss.save tidb-cloud-dev
+bg.wait.last

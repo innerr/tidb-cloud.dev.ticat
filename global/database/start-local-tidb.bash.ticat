@@ -1,5 +1,5 @@
 help = start local tidb to provide tidb cloud global database
-abbr = local
+abbr = start-local|local
 
 [arg]
 tidb-cloud-global-db-port|global-db-port|db-port|port|p = 4000
