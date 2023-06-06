@@ -59,6 +59,23 @@ if [ ! -f "${svr_bin}" ]; then
 fi
 
 create_db_sql="CREATE DATABASE IF NOT EXISTS ${db_name}"
-mysql -h "${db_host}" -P "${db_port}" -u "${db_user}" -e "${create_db_sql}"
+retry_times='9'
+for ((i=1; i < ${timeout}; i++)); do
+	set +e
+	mysql -h "${db_host}" -P "${db_port}" -u "${db_user}" -e "${create_db_sql}"
+	ret="$?"
+	set -e
+	if [ "${ret}" == '0' ]; then
+		echo "[:)] database is accessible" >&2
+		break
+	fi
+	if [ "${i}" == "${retry_times}" ]; then
+		echo "[:(] failed to connect to database" >&2
+		exit 1
+	else
+		echo "[:(] failed to connect to database, retry" >&2
+	fi
+	sleep 1
+done
 
 "${svr_bin}" serve --mock=true --config="${conf_file}"

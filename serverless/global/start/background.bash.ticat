@@ -1,0 +1,10 @@
+help = start local serverless-global-service in background, verify it is accessable
+abbr = bg
+trivial = 1
+flow = serverless.global.start %delay=0s %env=apply
+
+[arg]
+verify-timeout-secs|timeout = 60
+
+[dep]
+curl = to verify grpc server is started

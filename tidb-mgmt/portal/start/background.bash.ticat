@@ -1,0 +1,10 @@
+help = start local tidb-mgmt-portal in background, verify it is accessable
+abbr = bg
+trivial = 1
+flow = tidb-mgmt.portal.start %delay=0s %env=apply
+
+[arg]
+verify-timeout-secs|timeout = 60
+
+[dep]
+curl = to verify http server is started

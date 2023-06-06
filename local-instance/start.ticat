@@ -4,13 +4,10 @@ abbr = up|run
 args.auto = *
 
 [flow/]
-global.db.start-local.bg
-
-svrl.rgn.mock.up %delay=1s %env=apply
-
-svrl.glb.up  %delay=10s %env=apply : svrl.glb.add
-tmgmt.svc.up %delay=20s %env=apply
-tmgmt.ptl.up %delay=30s %env=apply
-
+global.database.start-local.background
+serverless.region.mock.start.background
+serverless.global.start.background : serverless.global.add-region
+tidb-mgmt.service.start.background
+tidb-mgmt.portal.start.background
 env.ss.save tidb-cloud-dev
 bg.wait.last
