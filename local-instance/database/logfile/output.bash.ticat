@@ -1,0 +1,10 @@
+help = if tidb cloud is running on local, print log file path of global database instance
+abbr = cat|out
+
+pack-subflow = true
+quiet-err = true
+
+flow = local-instance.database.logfile
+
+[arg]
+local-instance-start-cmd|start-cmd|cmd = lc.up

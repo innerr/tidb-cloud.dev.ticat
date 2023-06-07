@@ -1,0 +1,9 @@
+help = if tidb cloud is running on local, print log file path of global database instance
+abbr = log-file
+quiet-err = true
+
+[arg]
+local-instance-start-cmd|start-cmd|cmd = lc.up
+
+[env]
+tidb-cloud.global.database.logfile = write
