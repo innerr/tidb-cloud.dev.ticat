@@ -1,0 +1,7 @@
+help = if tidb cloud is running on local, print logs of mock serverless-regional-service
+abbr = cat|out
+pack-subflow = true
+flow = local-instance.serverless.regional.mock.log
+
+[arg]
+local-instance-start-cmd|start-cmd|cmd = lc.up

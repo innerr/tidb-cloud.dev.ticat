@@ -26,3 +26,4 @@ if [ -z "${log_file}" ]; then
 	exit 1
 fi
 echo "tidb-cloud.tidb-mgmt.service.logfile=${log_file}" >> "${env_file}"
+echo "${log_file}"
