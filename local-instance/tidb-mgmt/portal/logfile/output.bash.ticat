@@ -1,0 +1,7 @@
+help = if tidb cloud is running on local, print logs of tidb-mgmt-portal
+abbr = cat|out
+pack-subflow = true
+flow = local-instance.tidb-mgmt.portal.log
+
+[arg]
+local-instance-start-cmd|start-cmd|cmd = lc.up
