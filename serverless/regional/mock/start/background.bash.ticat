@@ -1,7 +1,10 @@
 help = start local mock serverless-regional-service in background, verify it is accessable
 abbr = bg
+
 trivial = 1
-flow = serverless.region.mock.start %delay=1s %env=apply
+unbreak-file-n-flow = true
+
+flow = serverless.region.mock.start %delay=0s %env=apply
 
 [arg]
 verify-timeout-secs|timeout = 60

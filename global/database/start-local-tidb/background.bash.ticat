@@ -1,6 +1,9 @@
 help = start local tidb in background, verify it is accessable
 abbr = bg
+
 trivial = 1
+unbreak-file-n-flow = true
+
 flow = global.database.start-local-tidb %delay=0 %env=apply
 
 [arg]

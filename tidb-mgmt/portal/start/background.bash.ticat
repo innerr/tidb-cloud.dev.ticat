@@ -1,6 +1,9 @@
 help = start local tidb-mgmt-portal in background, verify it is accessable
 abbr = bg
+
 trivial = 1
+unbreak-file-n-flow = true
+
 flow = tidb-mgmt.portal.start %delay=0s %env=apply
 
 [arg]
