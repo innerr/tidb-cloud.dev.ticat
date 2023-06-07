@@ -3,5 +3,5 @@ set -euo pipefail
 env=`cat "${1}/env"`
 shift
 
-file=`must_env_val "${env}" 'tidb-cloud.tidb-mgmt.portal.logfile'`
+file=`must_env_val "${env}" 'tidb-cloud.serverless.global.logfile'`
 cat "${file}"

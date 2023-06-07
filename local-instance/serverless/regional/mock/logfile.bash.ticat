@@ -1,5 +1,6 @@
 help = if tidb cloud is running on local, print log file path of mock serverless-regional-service
 abbr = log-file|log
+quiet-err = true
 
 [arg]
 local-instance-start-cmd|start-cmd|cmd = lc.up
