@@ -40,6 +40,9 @@ function kill_old_service_process()
 	local listen_port="${2}"
 
 	local all_listen=`lsof -nP | grep LIST | grep TCP | awk '{print $1, $2, $(NF-1)}' | sort | uniq`
+	if [ -z "${all_listen}" ]; then
+		return 0
+	fi
 
 	echo "[:-] all local listening process:" >&2
 	echo "${all_listen}" | awk '{print "     "$0}' >&2
@@ -49,13 +52,15 @@ function kill_old_service_process()
 		awk '{ if ($1=="'${cmd_name}'") {print $2} }'`
 
 	if [ -z "${old_pids}" ]; then
+		echo "[:)] no old process found" >&2
 		return 0
 	fi
 
-	echo "[:-] killing old pids:"
+	echo "[:-] killing old processes:"
 	echo "${old_pids}" | while read old_id; do
 		echo "     ${old_id} (${cmd_name}@${listen_port})"
 		kill -9 "${old_id}"
 		sleep 1
 	done
+	echo "[:)] done" >&2
 }

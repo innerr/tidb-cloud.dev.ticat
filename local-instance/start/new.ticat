@@ -1,0 +1,3 @@
+help = build and run tidb cloud in local mode
+args.auto = *
+flow = local-instance.build : local-instance.reset : local-instance.start

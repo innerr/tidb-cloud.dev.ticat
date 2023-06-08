@@ -1,4 +1,4 @@
-help = remove all data of local tidb cloud deployment
+help = remove all data of tidb cloud local deployment
 abbr = clear|clean
 
 [env]

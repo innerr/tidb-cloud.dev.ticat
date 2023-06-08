@@ -1,0 +1,4 @@
+help = build all modules of tidb cloud in repo dir
+abbr = b
+trivial = 1
+flow = serverless.regional.mock.build : serverless.global.build : tidb-mgmt.service.build : tidb-mgmt.portal.build
