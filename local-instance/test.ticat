@@ -6,13 +6,12 @@ cluster-name|cluster|name = xxxxx
 [flow/]
 lc.env
 
-api.sl.new BAD
-
+api.sl.new name=BAD %err=ok
 api.sl.new [[cluster-name]]
 api.sl.get
+api.sl.new %err=ok
+api.sl.del
+api.sl.get %err=ok
 api.sl.new
 api.sl.del
-api.sl.get
-api.sl.new
-api.sl.del
-api.sl.get
+api.sl.get %err=ok

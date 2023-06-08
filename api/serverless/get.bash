@@ -6,7 +6,16 @@ shift
 cluster_id=`must_env_val "${env}" 'tidb-cloud.test.current-cluster.id'`
 api_addr=`must_env_val "${env}" 'tidb-cloud.api.addr'`
 
-echo "==> GetServerlessCluster(cluster id: ${cluster_id})"
+echo "==> GetServerlessCluster(cluster_id: ${cluster_id})"
+echo "    ***"
 echo "    curl -s http://${api_addr}/serverless/v1/clusters/${cluster_id}"
-curl -s "http://${api_addr}/serverless/v1/clusters/${cluster_id}"
-echo
+
+response=`curl -s -w ' %{http_code}' "http://${api_addr}/serverless/v1/clusters/${cluster_id}" 2>&1`
+
+echo "    ***"
+echo "${response}" | awk '{print "    "$0}'
+
+http_code=`echo "${response}" | awk '{print $NF}'`
+if [ "${http_code}" != '200' ]; then
+	exit 1
+fi

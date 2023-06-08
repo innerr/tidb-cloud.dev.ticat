@@ -16,13 +16,21 @@ region="${cloud_provider}-${region_name}"
 
 api_addr=`must_env_val "${env}" 'tidb-cloud.api.addr'`
 
-echo "==> CreateServerlessCluster(region: ${region}, cluster name: ${name})"
-echo "    curl -s -X POST --data '{\"displayName\":\"${name}\",\"region\":\"regions/${region}\"}' http://${api_addr}/serverless/v1/clusters"
+echo "==> CreateServerlessCluster(region: ${region}, cluster_display_name: ${name})"
+echo "    ***"
+echo "    curl -s -X POST --data '{\"displayName\":\"${name}\",\"region\":{\"name\":\"regions/${region}\"}}' http://${api_addr}/serverless/v1/clusters"
 
-response=`curl -s -X POST --data "{\"displayName\":\"${name}\",\"region\":\"regions/${region}\"}" "http://${api_addr}/serverless/v1/clusters"`
-echo "${response}"
+response=`curl -s -w ' %{http_code}' -X POST --data "{\"displayName\":\"${name}\",\"region\":{\"name\":\"regions/${region}\"}}" "http://${api_addr}/serverless/v1/clusters" 2>&1`
 
-cluster_id=`echo "${response}" | { grep 'clusterId":"' || test $? = 1; } | awk -F 'clusterId":"' '{print $2}' | awk -F '"' '{print $1}'`
+echo "    ***"
+echo "${response}" | awk '{print "    "$0}'
+
+http_code=`echo "${response}" | awk '{print $NF}'`
+if [ "${http_code}" != '200' ]; then
+	exit 1
+fi
+
+cluster_id=`echo "${response}" | { grep 'cluster_id":"' || test $? = 1; } | awk -F 'cluster_id":"' '{print $2}' | awk -F '"' '{print $1}'`
 if [ ! -z "${cluster_id}" ]; then
-	echo "tidb-cloud.test.current-cluster.id=${cluster_id}" | tee -a "${env_file}"
+	echo "tidb-cloud.test.current-cluster.id=${cluster_id}" >> "${env_file}"
 fi
