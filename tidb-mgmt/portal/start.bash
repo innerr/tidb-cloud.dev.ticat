@@ -44,4 +44,6 @@ if [ ! -f "${svc_bin}" ]; then
 	)
 fi
 
+# TODO: better bin name
+kill_old_service_process 'cmd' "${port}"
 "${svc_bin}" --config "${conf_file}"

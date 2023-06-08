@@ -42,7 +42,6 @@ server:
     delete_secs: ${delete_secs}
 EOF
 
-
 mock_bin="${repo_dir}/bin/mock-serverless-regional"
 if [ ! -f "${mock_bin}" ]; then
 	(
@@ -52,4 +51,5 @@ if [ ! -f "${mock_bin}" ]; then
 fi
 
 mkdir -p "`dirname ${db_path}`"
+kill_old_service_process 'mock-serv' "${grpc_port}"
 "${mock_bin}" -config "${conf_file}"

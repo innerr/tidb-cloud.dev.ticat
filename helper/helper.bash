@@ -33,3 +33,29 @@ function get_cmd_logfile_from_session()
 	fi
 	echo "${log_file}"
 }
+
+function kill_old_service_process()
+{
+	local cmd_name="${1}"
+	local listen_port="${2}"
+
+	local all_listen=`lsof -nP | grep LIST | grep TCP | awk '{print $1, $2, $(NF-1)}' | sort | uniq`
+
+	echo "[:-] all local listening process:" >&2
+	echo "${all_listen}" | awk '{print "     "$0}' >&2
+
+	local old_pids=`echo "${all_listen}" | \
+		{ grep ":${listen_port}$" || test $? = 1; } | \
+		awk '{ if ($1=="'${cmd_name}'") {print $2} }'`
+
+	if [ -z "${old_pids}" ]; then
+		return 0
+	fi
+
+	echo "[:-] killing old pids:"
+	echo "${old_pids}" | while read old_id; do
+		echo "     ${old_id} (${cmd_name}@${listen_port})"
+		kill -9 "${old_id}"
+		sleep 1
+	done
+}

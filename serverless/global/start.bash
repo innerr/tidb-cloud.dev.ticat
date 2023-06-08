@@ -78,4 +78,6 @@ for ((i=1; i < ${timeout}; i++)); do
 	sleep 1
 done
 
+# TODO: better bin name
+kill_old_service_process 'cmd' "${port}"
 "${svr_bin}" serve --mock=true --config="${conf_file}"

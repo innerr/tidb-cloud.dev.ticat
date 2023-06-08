@@ -1,5 +1,5 @@
 help = if tidb cloud is running on local, print log file path of tidb-mgmt-portal
-abbr = log-file|log
+abbr = log-file|log|l
 quiet-err = true
 
 [arg]

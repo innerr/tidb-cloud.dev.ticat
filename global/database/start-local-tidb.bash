@@ -4,15 +4,13 @@ env=`cat "${1}/env"`
 
 db_port=`must_env_val "${env}" 'tidb-cloud.global.db.port'`
 
+# TODO: use kill_old_service_process()
 old_pids=`ps -ef`
-set +e
 old_pids=`echo "${old_pids}" | \
 	{ grep 'tidb-server' || test $? = 0; } | \
 	{ grep "\-P ${db_port}" || test $? = 0; } | \
 	{ grep '\-\-host=127.0.0.1' || test $? = 0; } |\
 	awk '{print $2}'`
-set -e
-
 if [ ! -z "${old_pids}" ]; then
 	echo "[:-] killing old pids:"
 	echo "${old_pids}" | while read old_id; do

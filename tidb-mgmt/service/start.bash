@@ -1,6 +1,9 @@
 set -euo pipefail
 . "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/../../helper/helper.bash"
 env=`cat "${1}/env"`
+shift
+
+port="${1}"
 
 db_host=`must_env_val "${env}" 'tidb-cloud.global.db.host'`
 db_port=`must_env_val "${env}" 'tidb-cloud.global.db.port'`
@@ -18,7 +21,7 @@ tiinf:
   localMode: true
   grpc:
     enable: true
-    port: 10003
+    port: ${port}
     withDefault: true
   gin:
     enable: true
@@ -54,4 +57,6 @@ fi
 create_db_sql="CREATE DATABASE IF NOT EXISTS ${db_name}"
 mysql -h "${db_host}" -P "${db_port}" -u "${db_user}" -e "${create_db_sql}"
 
+# TODO: better bin name
+kill_old_service_process 'cmd' "${port}"
 "${svc_bin}" --config "${conf_file}"
