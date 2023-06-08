@@ -7,9 +7,9 @@ db_port=`must_env_val "${env}" 'tidb-cloud.global.db.port'`
 # TODO: use kill_old_service_process()
 old_pids=`ps -ef`
 old_pids=`echo "${old_pids}" | \
-	{ grep 'tidb-server' || test $? = 0; } | \
-	{ grep "\-P ${db_port}" || test $? = 0; } | \
-	{ grep '\-\-host=127.0.0.1' || test $? = 0; } |\
+	{ grep 'tidb-server' || test $? = 1; } | \
+	{ grep "\-P ${db_port}" || test $? = 1; } | \
+	{ grep '\-host=127.0.0.1' || test $? = 1; } |\
 	awk '{print $2}'`
 if [ ! -z "${old_pids}" ]; then
 	echo "[:-] killing old pids:"
