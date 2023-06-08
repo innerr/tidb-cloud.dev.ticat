@@ -1,0 +1,5 @@
+help = build serverless-regional-service in repo dir
+abbr = b
+
+[env]
+tidb-cloud.dev.tidb-mgmt.repo-dir = read
