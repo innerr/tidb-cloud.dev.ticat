@@ -10,4 +10,4 @@ serverless.global.start.background : serverless.global.add-region
 tidb-mgmt.service.start.background
 tidb-mgmt.portal.start.background
 env.ss.save tidb-cloud-dev
-bg.wait.last
+bg.wait.cmd tidb-mgmt.portal.run
