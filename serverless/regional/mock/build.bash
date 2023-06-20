@@ -4,5 +4,5 @@ env=`cat "${1}/env"`
 
 repo_dir=`must_env_val "${env}" 'tidb-cloud.dev.tidb-mgmt.repo-dir'`
 mock_bin="${repo_dir}/bin/mock-serverless-regional"
-cd "${repo_dir}/mock/serverless_regional_service"
+cd "${repo_dir}/serverless-regional-service/mock"
 make build
