@@ -41,6 +41,7 @@ infra:
 
 regionalserver:
   requestTimeoutInSec: ${timeout}
+  retryWaitTimeoutInSec: 1
   retryCount: ${retry}
 
 mysql:
@@ -48,6 +49,15 @@ mysql:
   user: ${db_user}
   port: ${db_port}
   database: ${db_name}
+  tlsConfigKey: skip-verify
+
+proxy:
+  auth0Domain: domain
+  auth0ClientID: id
+  auth0ClientSecret: auth
+  auth0Audience: auth
+aws:
+  pcaArn: arn
 EOF
 
 svr_bin="${repo_dir}/bin/serverless-global-service/cmd"

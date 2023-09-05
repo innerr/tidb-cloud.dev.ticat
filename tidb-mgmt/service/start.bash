@@ -22,10 +22,9 @@ tiinf:
   grpc:
     enable: true
     port: ${port}
-    withDefault: true
+    withDefault: false
   gin:
     enable: true
-    port: 8081
   metrics:
     enable: false
   trace:
@@ -35,15 +34,25 @@ tiinf:
 
 serverless:
   url: ${serverless_global}
-billing:
-  url: http://localhost:8081
   local: true
+  enable-detail-grpc-log: true
+
+server-runtime:
+  enable-detail-grpc-log: true
+
+auditlog:
+  local: true
+
+#billing:
+#  url: http://localhost:8081
+#  local: true
 
 db:
   host: ${db_host}
   port: ${db_port}
   database: ${db_name}
   user: ${db_user}
+  tls-config-key: skip-verify
 EOF
 
 svc_bin="${repo_dir}/bin/tidb-mgmt-service/cmd"

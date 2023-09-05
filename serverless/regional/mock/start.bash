@@ -42,7 +42,7 @@ server:
     delete_secs: ${delete_secs}
 EOF
 
-mock_bin="${repo_dir}/bin/mock-serverless-regional"
+mock_bin="${repo_dir}/bin/serverless-regional-service/mock-serverless-regional-service"
 if [ ! -f "${mock_bin}" ]; then
 	(
 		cd "${repo_dir}/serverless-regional-service/mock"

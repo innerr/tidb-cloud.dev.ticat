@@ -3,6 +3,6 @@ set -euo pipefail
 env=`cat "${1}/env"`
 
 repo_dir=`must_env_val "${env}" 'tidb-cloud.dev.tidb-mgmt.repo-dir'`
-mock_bin="${repo_dir}/bin/mock-serverless-regional"
+mock_bin="${repo_dir}/bin/serverless-regional-service/mock-serverless-regional-service"
 cd "${repo_dir}/serverless-regional-service/mock"
 make build

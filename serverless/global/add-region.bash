@@ -16,7 +16,32 @@ fi
 
 cli_sh="${repo_dir}/serverless-global-service/local/cli.sh"
 
-echo "==> ${cli_sh}" provider add --provider="${provider}"
-"${cli_sh}" provider add --provider="${provider}"
-echo "==> ${cli_sh}" region add --region-svc-addr "http://${addr}"
-"${cli_sh}" region add --region-svc-addr "http://${addr}"
+for ((i=0;i<9;++i)); do
+	echo "==> ${cli_sh}" provider add --provider="${provider}"
+	set +e
+	"${cli_sh}" provider add --provider="${provider}"
+	rtc="$?"
+	set -e
+	if [ "${rtc}" == '0' ]; then
+		echo "    done"
+		break
+	else
+		echo "    failed"
+		sleep 1
+	fi
+done
+
+for ((i=0;i<9;++i)); do
+	echo "==> ${cli_sh}" region add --region-svc-addr "http://${addr}"
+	set +e
+	"${cli_sh}" region add --region-svc-addr "http://${addr}"
+	rtc="$?"
+	set -e
+	if [ "${rtc}" == '0' ]; then
+		echo "    done"
+		break
+	else
+		echo "    failed"
+		sleep 1
+	fi
+done
