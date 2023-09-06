@@ -2,7 +2,7 @@ help = run tidb-mgmt-portal on local mode
 abbr = run|up|start
 
 [arg]
-tidb-cloud-tidb-mgmt-portal-port|tmgmt-port|port = 8080
+tidb-cloud-tidb-mgmt-portal-port|tmgmt-port|port = 8038
 tidb-cloud-tidb-mgmt-portal-host|tmgmt-host|host = 127.0.0.1
 
 [val2env]

@@ -8,9 +8,9 @@ api_addr=`must_env_val "${env}" 'tidb-cloud.api.addr'`
 
 echo "==> GetServerlessCluster(cluster_id: ${cluster_id})"
 echo "    ***"
-echo "    curl -s http://${api_addr}/serverless/v1/clusters/${cluster_id}"
+echo "    curl -s http://${api_addr}/serverless/v1beta1/clusters/${cluster_id}"
 
-response=`curl -s -w ' %{http_code}' "http://${api_addr}/serverless/v1/clusters/${cluster_id}" 2>&1`
+response=`curl -s -w ' %{http_code}' "http://${api_addr}/serverless/v1beta1/clusters/${cluster_id}" 2>&1`
 
 echo "    ***"
 echo "${response}" | awk '{print "    "$0}'

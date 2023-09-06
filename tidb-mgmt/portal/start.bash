@@ -34,6 +34,8 @@ accountService:
   localMode: true
 auth:
   localMode: true
+rbac:
+  localMode: true
 EOF
 
 svc_bin="${repo_dir}/bin/tidb-mgmt-portal/cmd"

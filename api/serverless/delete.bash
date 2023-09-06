@@ -8,9 +8,9 @@ api_addr=`must_env_val "${env}" 'tidb-cloud.api.addr'`
 
 echo "==> DeleteServerlessCluster(cluster_id: ${cluster_id})"
 echo "    ***"
-echo "    curl -s -X DELETE http://${api_addr}/serverless/v1/clusters/${cluster_id}"
+echo "    curl -s -X DELETE http://${api_addr}/serverless/v1beta1/clusters/${cluster_id}"
 
-response=`curl -s -w ' %{http_code}' -X DELETE "http://${api_addr}/serverless/v1/clusters/${cluster_id}" 2>&1`
+response=`curl -s -w ' %{http_code}' -X DELETE "http://${api_addr}/serverless/v1beta1/clusters/${cluster_id}" 2>&1`
 
 echo "    ***"
 echo "${response}" | awk '{print "    "$0}'
