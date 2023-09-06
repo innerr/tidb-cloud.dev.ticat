@@ -8,6 +8,8 @@ global.database.start-local.background
 serverless.region.mock.start.background
 serverless.global.start.background : serverless.global.add-region
 tidb-mgmt.service.start.background
+core-svc.mock.start.background
+core-svc.proxy.start.background
 tidb-mgmt.portal.start.background
 env.ss.save tidb-cloud-dev
 bg.wait.cmd tidb-mgmt.portal.run

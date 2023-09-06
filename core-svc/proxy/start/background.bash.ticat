@@ -1,0 +1,13 @@
+help = start local core-svc-proxy in background, verify it is accessable
+abbr = bg
+
+trivial = 1
+unbreak-file-n-flow = true
+
+flow = core-svc.proxy.start %delay=0s %env=apply
+
+[arg]
+verify-timeout-secs|timeout = 60
+
+[dep]
+curl = to verify grpc server is started

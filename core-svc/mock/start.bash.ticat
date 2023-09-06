@@ -1,0 +1,14 @@
+help = run mock-core-svc on local mode
+abbr = run|up|start
+
+[arg]
+core-svc-port = 10100
+core-svc-host = 127.0.0.1
+
+[val2env]
+tidb-cloud.core-svc.addr = [[core-svc-host]]:[[core-svc-port]]
+
+[env]
+tidb-cloud.core-svc.addr = write
+
+tidb-cloud.dev.tidb-mgmt.repo-dir = read

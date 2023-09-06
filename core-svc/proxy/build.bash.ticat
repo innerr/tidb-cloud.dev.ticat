@@ -1,0 +1,5 @@
+help = build core-svc-proxy in repo dir
+abbr = b
+
+[env]
+tidb-cloud.dev.tidb-mgmt.repo-dir = read

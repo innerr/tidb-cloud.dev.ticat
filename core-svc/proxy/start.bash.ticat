@@ -1,0 +1,16 @@
+help = run core-svc-proxy on local mode
+abbr = run|up|start
+
+[arg]
+core-svc-proxy-port|tempo-proxy-port = 10102
+core-svc-proxy-host|tempo-proxy-host = 127.0.0.1
+
+[val2env]
+tidb-cloud.core-svc.proxy.addr = [[core-svc-proxy-host]]:[[core-svc-proxy-port]]
+
+[env]
+tidb-cloud.serverless-global.addr = read
+tidb-cloud.tidb-mgmt.service.addr = read
+tidb-cloud.core-svc.addr = read
+
+tidb-cloud.dev.tidb-mgmt.repo-dir = read

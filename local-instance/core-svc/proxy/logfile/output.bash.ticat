@@ -1,0 +1,10 @@
+help = if tidb cloud is running on local, print logs of core-svc-proxy
+abbr = cat|out
+
+pack-subflow = true
+quiet-err = true
+
+flow = local-instance.core-svc.proxy.log
+
+[arg]
+local-instance-start-cmd|start-cmd|cmd = lc.up

@@ -1,0 +1,9 @@
+help = if tidb cloud is running on local, print log file path of core-svc-proxy
+abbr = log-file|log|l
+quiet-err = true
+
+[arg]
+local-instance-start-cmd|start-cmd|cmd = lc.up
+
+[env]
+tidb-cloud.core-svc.proxy.logfile = write
