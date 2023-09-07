@@ -1,0 +1,15 @@
+help = call core-svc.CreateClusterJob
+abbr = create|new|c
+
+[arg]
+cluster-id|cluster|id = ''
+job-type|type|t = restore (cdc|restore)
+
+[arg2env]
+tidb-cloud.test.current-cluster.id = cluster-id
+
+[env]
+tidb-cloud.core-svc.proxy.addr = read
+
+[dep]
+grpcurl = as grpc client
